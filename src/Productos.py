@@ -94,7 +94,8 @@ class Producto (ABC):
     @stock.setter
     def stock(self, cantidad):
         self.__stock = cantidad
-    
+        
+    # Metodos
     def mostrar_precio(self):
         return self.__precio_base
     
@@ -144,6 +145,8 @@ class Hardware(Producto):
     @peso.setter
     def peso(self, num_peso):
         self.__peso = num_peso
+
+    # Metodos
     
     def calcular_elegibilidad_garantia(self):
         if (self.__meses_garantia > 0):
@@ -187,6 +190,8 @@ class Software(Producto):
     @clave_licencia.setter
     def clave_licencia(self, licencia):
         self.__clave_licencia = licencia
+
+    # Metodos
 
     def enviar_licencia_por_email(self):
         return f"Se ha enviado la clave {self.__clave_licencia} para el producto de Software: {self.nombre_comercial} al email del cliente"
