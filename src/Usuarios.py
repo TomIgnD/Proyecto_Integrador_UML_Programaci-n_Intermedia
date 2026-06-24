@@ -23,6 +23,9 @@ class Usuario(ABC):
     
     def get_contraseña(self):
         return self.__contraseña
+    
+    def set_contraseña(self, contraseña):
+        self.__contraseña = contraseña
 
     # Método abstracto, se impelmte aen las clases de Cliente y Administrador
     @abstractmethod
@@ -38,7 +41,10 @@ class Cliente(Usuario):
     
     # ""
     def validar_credenciales(self, email, contraseña):
-        return self.get_email() == email and contraseña == "clientePro"
+        return (
+            self.get_email() == email
+            and self.get_contraseña() == contraseña
+        )
 
     # Este metodo lo que hace es agregar compras al carrito, primero evalua si 
     # el stock peretnciente a la clase porducto es mayor o igual a la canitdad solicitada y 
@@ -67,7 +73,10 @@ class Administrador(Usuario):
         
     # ""
     def validar_credenciales(self, email, contraseña):
-        return self.get_email() == email and contraseña == "Admin"
+        return (
+            self.get_email() == email
+            and self.get_contraseña() == contraseña
+        )
 
     #Este metodo permite al administrador agregra un nuevo producto si quiere, utiliza como 
     # parametros una lista de productos y la referncia "producto" de la clase Producto
@@ -80,3 +89,4 @@ class Administrador(Usuario):
     def reponer_stock(self, producto: Producto, cantidad):
         producto.stock += cantidad
         print(f"Stock de {producto.nombre_comercial} actualizado a {producto.stock}.")
+
