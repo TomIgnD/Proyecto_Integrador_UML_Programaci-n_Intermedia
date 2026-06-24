@@ -1,15 +1,4 @@
-import matplotlib.pyplot as plt
-import matplotlib.image as mpimg
 from abc import ABC, abstractclassmethod
-
-imagen = mpimg.imread("Foto del Grupo.jpg")
-
-plt.imshow(imagen)
-plt.axis("off")
-
-plt.show()
-
-exit()
 
 # Tiago — Módulo de Productos
 # Clases:
